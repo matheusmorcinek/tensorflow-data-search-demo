@@ -15,8 +15,8 @@ async function findSimilarFunctionalities(query, options) {
 
     let totalStartTime = performance.now();
 
-    let initialMemoryUsage = process.memoryUsage();
-    console.log(`Initial Memory Usage: RSS=${initialMemoryUsage.rss} bytes, Heap Total=${initialMemoryUsage.heapTotal} bytes, Heap Used=${initialMemoryUsage.heapUsed} bytes`);
+    // let initialMemoryUsage = process.memoryUsage();
+    // console.log(`Initial Memory Usage: RSS=${initialMemoryUsage.rss} bytes, Heap Total=${initialMemoryUsage.heapTotal} bytes, Heap Used=${initialMemoryUsage.heapUsed} bytes`);
 
     const { keys, numResults, threshold } = options;
 
@@ -75,31 +75,12 @@ async function findSimilarFunctionalities(query, options) {
         }
         for (let i = 0; i < numResults && i < scores.length; i++) {
             const idx = scores[i].index;
-            console.log('\x1b[42m%s\x1b[0m', `Functionality ID: ${functionalities[idx].functionality_id}, Name: ${functionalities[idx].name}, Score: ${scores[i].score.toFixed(4)}`);
+            console.log('\x1b[42m%s\x1b[0m', `${i+1} - Functionality ID: ${functionalities[idx].functionality_id}, Name: ${functionalities[idx].name}, Score: ${scores[i].score.toFixed(4)}`);
         }
     };
     let totalEndTime = performance.now();
     console.log(`Total execution time: ${totalEndTime - totalStartTime} ms (${((totalEndTime - totalStartTime) / 1000).toFixed(2)} seconds)`);
 };
-
-const options = {
-    keys: [
-        "name",
-        "description",
-        "searchTokens",
-        "category"
-    ],
-    numResults: 3, // number of top results
-    threshold: 0.55 // confidence threshold
-};
-
-// const query = "organize my discount coupons"; // should return: Discount Card 
-
-// const query = "place of business"; // should return: Office Search
-// const query = "place of business search"; // should return: Office Search
-
-// const query = "diesel"; // should return: Gas Station Finder
-
 
 // Basic scenarios
 const query = "organize coupons"; // should return: Discount Card
@@ -136,4 +117,15 @@ const query21 = "refuel"; // should return: Gas Station Finder
 const query22 = "savings"; // should return: Discount Card
 const query23 = "coupons"; // should return: Discount Card
 
-findSimilarFunctionalities(query21, options);
+const options = {
+    keys: [
+        "name",
+        "description",
+        "searchTokens",
+        "category"
+    ],
+    numResults: 3, // number of top results
+    threshold: 0.55 // confidence threshold
+};
+
+findSimilarFunctionalities(query10, options);
