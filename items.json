@@ -1,0 +1,51 @@
+[
+    {
+        "functionality_id": "1",
+        "name": "Office Search",
+        "description": "Search for club offices including name, address, and contact details.",
+        "category": "Office",
+        "searchTokens": [
+            "search",
+            "office",
+            "club",
+            "location"
+        ]
+    },
+    {
+        "functionality_id": "2",
+        "name": "Wallet",
+        "description": "Manage your membership card and integrate it with Apple/Android Wallet for easy access.",
+        "category": "Membership",
+        "searchTokens": [
+            "wallet",
+            "membership",
+            "card",
+            "Apple Wallet",
+            "Android Wallet"
+        ]
+    },
+    {
+        "functionality_id": "3",
+        "name": "Gas Station Finder",
+        "description": "Find gas stations near your current location.",
+        "category": "Utility",
+        "searchTokens": [
+            "gas station",
+            "fuel",
+            "locator",
+            "nearby"
+        ]
+    },
+    {
+        "functionality_id": "4",
+        "name": "Discount Card",
+        "description": "View and manage your discount cards.",
+        "category": "Savings",
+        "searchTokens": [
+            "discount",
+            "card",
+            "deals",
+            "offers"
+        ]
+    }
+]
